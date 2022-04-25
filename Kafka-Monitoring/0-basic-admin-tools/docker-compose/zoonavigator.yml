@@ -1,0 +1,20 @@
+version: '2.1'
+
+services:
+  web:
+    image: elkozmon/zoonavigator-web:latest
+    container_name: zoonavigator-web
+    ports:
+     - "7070:7070"
+    environment:
+      HTTP_PORT: 7070
+
+### this command is working above ynml file is obselet###
+docker run \
+  -d \
+  -p 7070:7070 \
+  --network host \
+  -e HTTP_PORT=7070 \
+  --name zoonavigator \
+  --restart unless-stopped \
+  elkozmon/zoonavigator:latest
